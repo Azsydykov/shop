@@ -27,14 +27,15 @@ public class Main {
               String category = scanner.next();
               Product[] products = operation.getProductByCategory(category);
 
-             for (Product item:products){
-                 if (item!=null)
+             for (Product item:products) {
+                 if (item != null)
                      item.getInfo();
 
              }
              System.out.println("Выберите продукт ");
              String productName = scanner.next();
              Product product = operation.getProductByName(productName);
+
              System.out.println("Выберите количество ");
              int amount = scanner.nextInt();
              System.out.println("Выберите скидку ");
@@ -60,13 +61,8 @@ public class Main {
          order.setDetails(details);
          order.setCashier(res);
 
-
          Receipt receipt = operation.getReceipt(order);
          System.out.println(receipt);
-
-
-
-
 
     }
 }

@@ -9,17 +9,14 @@ import java.util.Arrays;
 
 
 public class OperationImpl implements Operation {
-
-
     Sugar sugar = new Sugar("Сахар", 90, MeasureType.Kg, ProductCategory.DAIRY);
     Water water = new Water("Легенда", 25, MeasureType.L, ProductCategory.BEVERAGES);
     Tomato tomato = new Tomato("Помидор", 45, MeasureType.Kg, ProductCategory.VEGETABLES);
     Apple apple = new Apple("Яблоко", 110, MeasureType.Kg, ProductCategory.FRUIT);
-
     Pear pear = new Pear("Груша", 100, MeasureType.Kg, ProductCategory.FRUIT);
 
-    Cashier aibek = new Cashier("Айбек", "aiba", 24);
-    Cashier jibek = new Cashier("Жибек", "jiba", 22);
+    Cashier aibek = new Cashier("Aibek", "aiba", 24);
+    Cashier jibek = new Cashier("Jibek", "jiba", 22);
 
     Product[] products = {sugar, water, tomato, apple, pear};
     Cashier[] cashiers = {aibek, jibek};
@@ -34,6 +31,7 @@ public class OperationImpl implements Operation {
        double totalSum = 0;
        double totalDiscount=0;
        ReceiptDetails[] receiptDetails = new ReceiptDetails[10];
+
 
        for (int i = 0; i< details.length; i++ ){
            if(details[i]!=null) {
@@ -92,14 +90,15 @@ public class OperationImpl implements Operation {
         return null;
     }
 
-
     @Override
     public Cashier getCashierByName(String cashier) {
         for (Cashier item : cashiers){
             if (item.getName().equals(cashier))
-                return  item;
+                return item;
         }
         return null;
     }
+
+
 }
 

@@ -17,4 +17,5 @@ public interface Operation {
     Product getProductByName (String productName);
     Cashier getCashierByName (String cashier);
 
+
 }
