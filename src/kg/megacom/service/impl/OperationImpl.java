@@ -21,7 +21,6 @@ public class OperationImpl implements Operation {
     Product[] products = {sugar, water, tomato, apple, pear};
     Cashier[] cashiers = {aibek, jibek};
 
-
     @Override
     public Receipt getReceipt(Order order) {
 
@@ -58,10 +57,9 @@ public class OperationImpl implements Operation {
     @Override
     public void getCategory() {
         for (ProductCategory item : ProductCategory.values()) {
-            System.out.println(item.getVal());
+            System.out.println(item);
         }
     }
-
     @Override
     public Product[] getProductByCategory(String category) {
 
@@ -92,13 +90,13 @@ public class OperationImpl implements Operation {
 
     @Override
     public Cashier getCashierByName(String cashier) {
-        for (Cashier item : cashiers){
+
+        for (Cashier item : cashiers) {
+
             if (item.getName().equals(cashier))
                 return item;
         }
         return null;
+
     }
-
-
 }
-

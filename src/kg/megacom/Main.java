@@ -6,6 +6,7 @@ import kg.megacom.service.impl.OperationImpl;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -25,19 +26,28 @@ public class Main {
              System.out.println("Выберите категорию продуктов");
               operation.getCategory();
               String category = scanner.next();
-              Product[] products = operation.getProductByCategory(category);
+              Product[] products;
 
+          try{
+                products = operation.getProductByCategory(category);
+
+           }catch ( IllegalArgumentException exception){
+              System.out.println("Неверно введены данные");
+              continue;
+          }
+             System.out.println("Выберите продукт ");
              for (Product item:products) {
                  if (item != null)
                      item.getInfo();
 
              }
-             System.out.println("Выберите продукт ");
+
              String productName = scanner.next();
              Product product = operation.getProductByName(productName);
 
              System.out.println("Выберите количество ");
-             int amount = scanner.nextInt();
+              int amount = scanner.nextInt();
+
              System.out.println("Выберите скидку ");
              int discount = scanner.nextInt();
              Details detail = new Details (product, amount, discount);
@@ -52,11 +62,15 @@ public class Main {
             if (item!=null)
                 System.out.println(item);
         }
+        String cashier = null;
 
-         System.out.println("Выберите кассира");
-         String cashier = scanner.next();
+            System.out.println("Выберите кассира");
 
-         Cashier res = operation.getCashierByName(cashier);
+            cashier = scanner.next();
+        Cashier res=null;
+        res = operation.getCashierByName(cashier);
+
+
          Order order = new Order();
          order.setDetails(details);
          order.setCashier(res);
