@@ -1,14 +1,10 @@
 package kg.megacom.service;
 
 
-import kg.megacom.Cashier;
-import kg.megacom.Order;
-import kg.megacom.Receipt;
-import kg.megacom.enums.ProductCategory;
-import kg.megacom.Product;
-
-import java.util.List;
-import java.util.SplittableRandom;
+import kg.megacom.models.Cashier;
+import kg.megacom.models.Order;
+import kg.megacom.models.Receipt;
+import kg.megacom.models.Product;
 
 public interface Operation {
     Receipt getReceipt (Order order);
@@ -17,5 +13,5 @@ public interface Operation {
     Product getProductByName (String productName);
     Cashier getCashierByName (String cashier);
 
-
+   double getInt(String message);
 }

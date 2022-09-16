@@ -1,7 +1,7 @@
-package kg.megacom;
+package kg.megacom.models;
 
-import kg.megacom.enums.MeasureType;
-import kg.megacom.enums.ProductCategory;
+import kg.megacom.models.enums.MeasureType;
+import kg.megacom.models.enums.ProductCategory;
 
 public abstract class Product {
     private String name;

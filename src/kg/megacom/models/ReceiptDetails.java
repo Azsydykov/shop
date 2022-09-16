@@ -1,4 +1,4 @@
-package kg.megacom;
+package kg.megacom.models;
 
 public class ReceiptDetails {
 

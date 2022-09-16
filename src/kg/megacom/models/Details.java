@@ -1,12 +1,12 @@
-package kg.megacom;
+package kg.megacom.models;
 
 public class Details {
 
     private Product product;
-    private double amount;
+    private int amount;
     private double discount;
 
-    public Details(Product product, double amount, double discount) {
+    public Details(Product product, int amount, double discount) {
         this.product = product;
         this.amount = amount;
         this.discount = discount;
@@ -14,6 +14,11 @@ public class Details {
 
     public Details() {
     }
+
+    public Details(Product product, String amount, int discount) {
+    }
+
+
     public Product getProduct() {
         return product;
     }
@@ -22,7 +27,7 @@ public class Details {
         this.product = product;
     }
 
-    public double getAmount() {
+    public  int getAmount() {
         return amount;
     }
 

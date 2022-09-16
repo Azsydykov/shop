@@ -1,4 +1,4 @@
-package kg.megacom.enums;
+package kg.megacom.models.enums;
 
 public enum ProductCategory {
     DAIRY ("Молочные продукты"),

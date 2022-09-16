@@ -1,4 +1,7 @@
-package kg.megacom;
+package kg.megacom.models;
+
+import kg.megacom.models.Cashier;
+import kg.megacom.models.Details;
 
 import java.util.Arrays;
 
