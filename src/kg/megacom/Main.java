@@ -58,6 +58,9 @@ public class Main {
             details[count] = detail;
             System.out.println("Продолжаете? 1 нет, 0 да");
             answer = scanner.nextByte();
+            if (answer!= 1 & answer!=0)
+                break;
+            else System.out.println("Не верно ввели данные, прошу повторить");
             count++;
         }
 
