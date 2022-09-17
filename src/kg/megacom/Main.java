@@ -20,6 +20,7 @@ public class Main {
 
         System.out.println("Добро пожаловать");
 
+
         while (answer != 1) {
             System.out.println("Выберите категорию продуктов");
             operation.getCategory();
@@ -39,9 +40,7 @@ public class Main {
                 for (Product item : products) {
                     if (item != null)
                         item.getInfo();
-
                 }
-
                 String productName = scanner.next();
 
                 product = operation.getProductByName(productName);
@@ -50,17 +49,14 @@ public class Main {
                 else System.out.println("Такого продукта нет ");
             }
 
-            int amount = (int) operation.getInt("Введите количество: ");
+            double amount = operation.getInt("Введите количество: ");
             double discount = operation.getInt("Укажите скидку: ");
-
 
             Details detail = new Details(product, amount, discount);
             details[count] = detail;
+
             System.out.println("Продолжаете? 1 нет, 0 да");
             answer = scanner.nextByte();
-            if (answer!= 1 & answer!=0)
-                break;
-            else System.out.println("Не верно ввели данные, прошу повторить");
             count++;
         }
 
@@ -68,6 +64,7 @@ public class Main {
             if (item != null)
                 System.out.println(item);
         }
+
 
         Cashier cashier = null;
 
@@ -89,6 +86,7 @@ public class Main {
 
     }
 }
+
 
 
 

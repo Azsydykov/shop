@@ -3,10 +3,10 @@ package kg.megacom.models;
 public class Details {
 
     private Product product;
-    private int amount;
+    private double amount;
     private double discount;
 
-    public Details(Product product, int amount, double discount) {
+    public Details(Product product, double amount, double discount) {
         this.product = product;
         this.amount = amount;
         this.discount = discount;
@@ -14,10 +14,6 @@ public class Details {
 
     public Details() {
     }
-
-    public Details(Product product, String amount, int discount) {
-    }
-
 
     public Product getProduct() {
         return product;
@@ -27,11 +23,11 @@ public class Details {
         this.product = product;
     }
 
-    public  int getAmount() {
+    public  double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

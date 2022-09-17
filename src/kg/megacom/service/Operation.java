@@ -14,4 +14,5 @@ public interface Operation {
     Cashier getCashierByName (String cashier);
 
    double getInt(String message);
+    boolean checkAnswer();
 }

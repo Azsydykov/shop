@@ -22,6 +22,8 @@ public class OperationImpl implements Operation {
     Product[] products = {sugar, water, tomato, apple, pear};
     Cashier[] cashiers = {aibek, jibek};
 
+    Scanner scanner = new Scanner(System.in);
+
     @Override
     public Receipt getReceipt(Order order) {
 
@@ -101,15 +103,13 @@ public class OperationImpl implements Operation {
     @Override
     public Cashier getCashierByName(String cashierName) {
 
-           for (Cashier item : cashiers) {
-               if (item.getName().equals(cashierName)) {
-                   return item;
-               }
-           }
-           return null;
-       }
-
-
+        for (Cashier item : cashiers) {
+            if (item.getName().equals(cashierName)) {
+                return item;
+            }
+        }
+        return null;
+    }
 
     private boolean checkNumber(String text) {
         try {
@@ -122,8 +122,6 @@ public class OperationImpl implements Operation {
 
     @Override
     public double getInt(String message) {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println(message);
         String number = scanner.nextLine();
         while (!checkNumber(number)) {
@@ -132,5 +130,18 @@ public class OperationImpl implements Operation {
             number = scanner.nextLine();
         }
         return Double.parseDouble(number);
+    }
+
+    @Override
+    public boolean checkAnswer() {
+        System.out.println("Продолжаете? 1 нет, 0 да");
+        String answer = String.valueOf(scanner.nextByte());
+        if(answer.equals("0")){
+            return true;
+        } else if (answer.equals("1")) {
+            return false;
+        }else {
+            return checkAnswer();
+        }
     }
 }
