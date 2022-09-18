@@ -7,12 +7,18 @@ import kg.megacom.models.Receipt;
 import kg.megacom.models.Product;
 
 public interface Operation {
-    Receipt getReceipt (Order order);
-    void getCategory();
-    Product[] getProductByCategory(String category);
-    Product getProductByName (String productName);
-    Cashier getCashierByName (String cashier);
+    Receipt getReceipt(Order order);
 
-   double getInt(String message);
+    void getCategory();
+
+    Product[] getProductByCategory(String category);
+
+    Product getProductByName(String productName);
+
+    Cashier getCashierByName(String cashier);
+
+    double getInt(String message);
+
     boolean checkAnswer();
+
 }

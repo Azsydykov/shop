@@ -13,7 +13,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Operation operation = new OperationImpl();
-        byte answer = 0;
+        boolean answer = true;
         int count = 0;
         //  System.out.println(count);
         Details[] details = new Details[10];
@@ -21,7 +21,7 @@ public class Main {
         System.out.println("Добро пожаловать");
 
 
-        while (answer != 1) {
+        while (answer !=false) {
             System.out.println("Выберите категорию продуктов");
             operation.getCategory();
             String category = scanner.next();
@@ -42,7 +42,6 @@ public class Main {
                         item.getInfo();
                 }
                 String productName = scanner.next();
-
                 product = operation.getProductByName(productName);
                 if (product != null)
                     break;
@@ -52,11 +51,15 @@ public class Main {
             double amount = operation.getInt("Введите количество: ");
             double discount = operation.getInt("Укажите скидку: ");
 
+
             Details detail = new Details(product, amount, discount);
             details[count] = detail;
 
-            System.out.println("Продолжаете? 1 нет, 0 да");
-            answer = scanner.nextByte();
+          //  operation.checkAnswer();
+             answer = operation.checkAnswer();
+          //  System.out.println("Хотите продолжить? 0->да, 1->нет");
+        //    answer = scanner.nextByte();
+
             count++;
         }
 
@@ -69,10 +72,13 @@ public class Main {
         Cashier cashier = null;
 
         while (true) {
-            System.out.println("Выберите кассира");
+            try{System.out.println("Выберите кассира");
 
-            String cashierName = scanner.next();
-            cashier = operation.getCashierByName(cashierName);
+                String cashierName = scanner.next();
+                cashier = operation.getCashierByName(cashierName);
+            }catch (Exception e){
+                System.out.println("Не верно ввели данные, прошу повторить");
+            }
             if (cashier != null)
                 break;
             else System.out.println("Не верно ввели имя, прошу повторить");

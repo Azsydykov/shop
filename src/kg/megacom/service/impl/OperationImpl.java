@@ -71,7 +71,6 @@ public class OperationImpl implements Operation {
 
         Product[] result;
         result = new Product[10];
-
         int j = 0;
         for (int i = 0; i < products.length; i++) {
             if (products[i].getCategory().equals(ProductCategory.valueOf(category))) {
@@ -134,14 +133,21 @@ public class OperationImpl implements Operation {
 
     @Override
     public boolean checkAnswer() {
-        System.out.println("Продолжаете? 1 нет, 0 да");
-        String answer = String.valueOf(scanner.nextByte());
-        if(answer.equals("0")){
-            return true;
-        } else if (answer.equals("1")) {
-            return false;
-        }else {
+        try {
+            System.out.println("Хотите продолжить? 0->да, 1->нет");
+            String answer = scanner.nextLine();
+            if (answer.equals("0")) {
+                return true;
+            } else if (answer.equals("1")) {
+                return false;
+            } else {
+                System.out.println("Не верный ввод,прошу повторить");
+                return checkAnswer();
+            }
+        } catch (InputMismatchException ex) {
+            System.out.println("Не верный ввод,прошу повторить");
             return checkAnswer();
         }
+
     }
 }
